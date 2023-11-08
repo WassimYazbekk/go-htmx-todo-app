@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="flex flex-col h-[100vh] w-full bg-black items-center py-[5vh]">
+      <h1 class="text-6xl text-white">Todo</h1>
+      <br />
+      <form
+        hx-post="/add-todo/"
+        hx-target="#todos"
+        hx-swap="beforeend"
+        hx-on::after-request="this.reset()"
+        class="flex w-[40vw]"
+      >
+        <input
+          class="rounded-tl-md flex-1 h-12 px-2 text-lg"
+          type="text"
+          name="todo"
+          required
+          placeholder="Add Todo..."
+        />
+        <button
+          class="h-12 w-12 bg-green-500 rounded-tr-md text-3xl text-center text-white"
+          type="submit"
+        >
+          +
+        </button>
+      </form>
+      <ul
+        id="todos"
+        class="flex-1 w-[40vw] p-2 bg-white bg-opacity-40 border-y border-y-black flex flex-col overflow-y-scroll"
+      >
+        {{range .todos}} {{block "todo-item" .}}
+        <li class="flex my-1 shadow-lg shadow-gray-400/50">
+          <h1
+            class="w-full inline-block rounded-l-md px-2 py-1 bg-white h-10 text-lg text-start overflow-x-scroll"
+          >
+            {{.Content}}
+          </h1>
+          {{if .Done}} {{block "undo-btn" .}}
+          <button
+            class="w-10 h-10 bg-green-500 text-xl text-white"
+            type="button"
+            hx-trigger="click"
+            hx-target="this"
+            hx-swap="outerHTML"
+            hx-get="/undo"
+          >
+            ✔️
+          </button>
+          {{end}} {{else}} {{block "done-btn" .}}
+          <button
+            class="w-10 h-10 bg-yellow-500 text-xl text-white"
+            type="button"
+            hx-trigger="click"
+            hx-target="this"
+            hx-swap="outerHTML"
+            hx-get="/done"
+          >
+            ⏲
+          </button>
+          {{end}} {{end}}
+          <button
+            class="w-10 h-10 bg-red-500 text-xl text-white rounded-r-md"
+            type="button"
+            hx-delete="/delete-todo"
+            hx-swap="outerHTML"
+            hx-target="closest li"
+          >
+            ✖️
+          </button>
+        </li>
+        {{end}} {{end}}
+      </ul>
+      <div class="rounded-b-md w-[40vw] bg-gray-300 bg-opacity-40 h-8"></div>
+    </div>
+  </body>
+</html>
