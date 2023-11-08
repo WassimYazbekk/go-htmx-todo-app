@@ -45,7 +45,7 @@ This project uses the following dependencies:
 
 ## License
 
-This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is open-source and available under the MIT License. See the [LICENSE](LICENSE.md) file for more details.
 
 ## Author
 
