@@ -49,7 +49,7 @@ This project is open-source and available under the MIT License. See the [LICENS
 
 ## Author
 
-This project is maintained by Wassim Yazbekk and can be found at [https://github.com/yourusername](https://github.com/WassimYazbekk).
+This project is maintained by Wassim Yazbekk and can be found at [https://github.com/WassemYazbekk](https://github.com/WassimYazbekk).
 
 
 
