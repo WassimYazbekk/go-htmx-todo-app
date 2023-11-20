@@ -1,9 +1,10 @@
 package main
 
 import (
-  "log"
-  "net/http"
-  "html/template"
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
 )
 
 type Todo struct{
@@ -51,26 +52,6 @@ func main(){
   http.HandleFunc("/done", doneTodoHandler)
   http.HandleFunc("/undo", undoTodoHandler)
 
+  fmt.Println("Server running at localhost:6969")
   log.Fatal(http.ListenAndServe(":6969", nil))
 }
-
-
-  // app.Get("/", func(c *fiber.Ctx) error{
-  //   return c.Render("index", fiber.Map{})
-  // })
-  //
-  // app.Get("/done", func(c *fiber.Ctx) error{
-  //   return c.Render("done", fiber.Map{})
-  // })
-  //
-  // app.Get("/undo", func(c *fiber.Ctx) error{
-  //   return c.Render("undo", fiber.Map{})
-  // })
-  //
-  // app.Delete("/delete",func(c *fiber.Ctx)error{
-  //   return c.Render("delete",fiber.Map{})
-  // })
-  //
-  // app.Post("/addTodo", func(c *fiber.Ctx)error{
-  //   return c.Render("todo", fiber.Map{})
-  // })
