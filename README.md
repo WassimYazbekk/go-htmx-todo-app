@@ -43,11 +43,6 @@ This project uses the following dependencies:
 - HTMX for dynamic updates on the web page
 
 
-## License
-
-This project is open-source and available under the MIT License. See the [LICENSE](LICENSE.md) file for more details.
-
-## Author
 
 This project is maintained by Wassim Yazbekk and can be found at [https://github.com/WassemYazbekk](https://github.com/WassimYazbekk).
 
