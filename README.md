@@ -1,4 +1,4 @@
-# go-htmx-todo
+# go-htmx-todo-app
 
 This is a simple to-do list web application built using Go and HTMX. It allows you to add, delete, mark as done, and undo tasks on your to-do list. The application is contained in a single Go source file, making it easy to understand and use.
 
